@@ -13,7 +13,7 @@ This repository contains a clean, scalable End-to-End (E2E) automation test deve
 
 ## Project Structure
 
-````text
+```text
 ├── pages/
 │   └── RequestCallbackPage.js   # POM class containing locators & form interactions
 ├── fixtures/
@@ -24,14 +24,18 @@ This repository contains a clean, scalable End-to-End (E2E) automation test deve
 │   └── before-submit.png        # Captured page state prior to clicking submit
 ├── playwright.config.js         # Core Playwright configuration
 └── package.json                 # Project dependencies & automated scripts
+```
 
 ## Setup & Installation
+
 (Ensure you have Node.js installed.)
+
 1. Clone the repository:
 
    ```bash
    git clone https://github.com/LiorAmram3811/jones-automation-task
    cd jones-automation-task
+   ```
 
 ````
 
@@ -47,3 +51,4 @@ This repository contains a clean, scalable End-to-End (E2E) automation test deve
    ```bash
    npx playwright test --headed
    ```
+````
