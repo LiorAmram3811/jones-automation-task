@@ -1,17 +1,5 @@
-import { expect, type Page, type Locator } from "@playwright/test";
-
 export class FormPage {
-  private readonly page: Page;
-  private readonly nameInput: Locator;
-  private readonly emailInput: Locator;
-  private readonly phoneInput: Locator;
-  private readonly companyInput: Locator;
-  private readonly websiteInput: Locator;
-  private readonly employeesSelect: Locator;
-  private readonly submitButton: Locator;
-  private readonly thankYouHeader: Locator;
-
-  constructor(page: Page) {
+  constructor(page) {
     this.page = page;
     this.nameInput = page.getByRole("textbox", { name: /name/i });
     this.emailInput = page.getByRole("textbox", { name: /email/i });
@@ -26,16 +14,10 @@ export class FormPage {
   }
 
   async navigate() {
-    await this.page.goto("https://test.netlify.app/");
+    await this.page.goto("/");
   }
 
-  async fillForm(details: {
-    name: string;
-    email: string;
-    phone: string;
-    company: string;
-    website: string;
-  }) {
+  async fillForm(details) {
     await this.nameInput.fill(details.name);
     await this.emailInput.fill(details.email);
     await this.phoneInput.fill(details.phone);
@@ -43,11 +25,11 @@ export class FormPage {
     await this.websiteInput.fill(details.website);
   }
 
-  async selectEmployeeCount(value: string) {
+  async selectEmployeeCount(value) {
     await this.employeesSelect.selectOption({ label: value });
   }
 
-  async takePageScreenshot(path: string) {
+  async takePageScreenshot(path) {
     await this.page.screenshot({ path, fullPage: true });
   }
 
@@ -56,7 +38,7 @@ export class FormPage {
   }
 
   async verifyThankYouPage() {
-    await expect(this.thankYouHeader).toBeVisible();
+    await this.thankYouHeader.waitFor({ state: "visible" });
     console.log("Successfully reached the thank you page!");
   }
 }
