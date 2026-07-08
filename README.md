@@ -37,8 +37,6 @@ This repository contains a clean, scalable End-to-End (E2E) automation test deve
    cd jones-automation-task
    ```
 
-````
-
 2. Install dependencies and Playwright browsers:
 
    ```bash
@@ -51,4 +49,3 @@ This repository contains a clean, scalable End-to-End (E2E) automation test deve
    ```bash
    npx playwright test --headed
    ```
-````
